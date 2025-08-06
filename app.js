@@ -1,6 +1,6 @@
 let amigosecreto = [];
                                                                     
-function nombreAmigos () {                                           //document es el cuerpo del texto
+function agregarAmigo () {                                           //document es el cuerpo del texto
   let ingresoDeNombre = document.getElementById("amigo")
   let nombre = ingresoDeNombre.value                                //value es para que sea igual al valor, no solo string
 
@@ -10,12 +10,12 @@ function nombreAmigos () {                                           //document 
     } 
     amigosecreto.push(nombre)               //.push guarda las variables en la lista
 ingresoDeNombre.value = "";
-
+mostrarAmigos()
 }
 
 function mostrarAmigos (){
 let listaamigos = document.getElementById ("listaAmigos")
-lista.innerHTML = ""
+listaamigos.innerHTML = ""
 
     for (let i=0; i<amigosecreto.length; i++){
       let etiquetaLi = document.createElement("li");
@@ -28,14 +28,17 @@ lista.innerHTML = ""
 }
 
 
-function amigoAleatorio(){
+
+function sortearAmigo(){
   if (amigosecreto.length === 0) {
+    alert ("inserte un nombre")
     return
   }
 
-  let indiceAlatorio = Math.floor(Math.random()* amigosecreto.length)
-  let amigoSorteado = amigosecreto[indiceAlatorio];
+  let indiceAleatorio = Math.floor(Math.random()* amigosecreto.length)
+  let amigoSorteado = amigosecreto[indiceAleatorio];
 
-  let resultado = document.getElementById(resultado).innerHTML = amigoSorteado;
+  document.getElementById("resultado").innerHTML = amigoSorteado;
 
 }
+
